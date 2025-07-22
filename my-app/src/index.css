@@ -13,6 +13,7 @@
   --colorHoverInput: #3d51c5;
   --bgColorContainer: #fff3f3;
   --bgColorContainer: #fff3f3;
+  --bgColorTh: #cacaca;
 }
 .nav {
   & a {
@@ -25,6 +26,7 @@
 .container {
   background-color: var(--bgColorContainer);
   padding: 2rem;
+  padding-top: 1rem;
   border-radius: 7px;
   margin: 1rem;
 }
@@ -98,6 +100,7 @@ table {
   border-collapse: collapse;
   & th {
     padding: 5px;
+    background-color: var(--bgColorTh);
   }
   & td.tdActionTable {
     padding: 0;

@@ -21,7 +21,7 @@ function AddItem(props) {
                 <input type="number" min={0} placeholder='Quant. Disponível' onChange={(e) => setQuantD(e.target.value)} value={quantD}/>
                 <input type="number" min={1} placeholder='Quant. Necessária' onChange={(e) => setQuantN(e.target.value)} value={quantN}/>
                 <select name="cat" id="cat" onChange={(e) => setCategoria(e.target.value)} value={categoria}>
-                    <option value="">Selecione a categoria</option>
+                    <option value="" style={{color: "red"}} >Selecione a categoria</option>
                     {props.categorias.map(itens => (
                         <option value={itens} key={itens}>{itens}</option>
                     ))}

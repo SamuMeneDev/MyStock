@@ -1,48 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import AddItem from './components/AddItem';
 import Nav from './components/Nav';
 
 import Tabela from './components/Tabela';
-function App() {
+function App(props) {
  
-  const categorias = [ // Categorias de produtos
-    "Hortifruti",
-    "Frios",
-    "Carnes",
-    "Higiene",
-    "Bebidas",
-    "Padaria",
-    "Mercearia",
-    "Congelados",
-    "Doces",
-    "Embalagens"];
+  const categorias = props.categorias;
 
-  const [lista, setLista] = useState( // Lista de produtos (Tabela)
-    [
-      {
-        id: 1,
-        nome: "Banana",
-        quantD: 5,
-        quantN: 3,
-        categoria: "Hortifruti"
-      },
-      {
-        id: 2,
-        nome: "Maça",
-        quantD: 2,
-        quantN: 5,
-        categoria: "Hortifruti"
-      },
-      {
-        id: 3,
-        nome: "Pão Francês",
-        quantD: 1,
-        quantN: 8,
-        categoria: "Padaria"
-      }
-  ])
+  const [lista, setLista] = useState(JSON.parse(localStorage.getItem("lista")) || []); // Lista de produtos (Tabela)
   
+  useEffect(() => { // Atualiza no LocalStorage os dados dos produtos
+    localStorage.setItem("lista", JSON.stringify(lista))
+  }, [lista]);
+
+
   // Métodos dos botões
   function addItem(nome, quantD, quantN, categoria, callback) {
     if (nome!="" && quantD!="" && quantN!="" && categoria!="") {
@@ -57,13 +29,36 @@ function App() {
       callback(); // Limpa os inputs de <AddItem />
     }
   }
+  function incrementoButton(itemId, variavel, isIncremento) {
+    // {variavel} 0: quantD; 1: quantN;
+    // {operador} false: Decremento; true: Incremento
+    const newLista = [...lista];
+    newLista.map(item => {
+      if (itemId === item.id) { // Checa qual é o item clicado em <Tabela />
+        if (isIncremento) { // Caso Incremento
+          if(variavel===0) {item.quantD++; // Caso quantD
+          } else {item.quantN++;} // Caso quantN
+        } else { // Caso decremento
+          if(variavel===0) {if(item.quantD>0) {item.quantD--;} // Caso quantD
+          } else {if(item.quantN>1){item.quantN--;}} // Caso quantN
+        }
+        
+      }
+    });
+    setLista(newLista);
+  }
+  function removeItem(itemId) {
+    const newLista = lista.filter(item=> item.id!=itemId);
+    setLista(newLista);
+  }
+
 
   return (
     <div>
       <Nav />
       <div className='app'>
         <AddItem categorias={categorias} addItem={addItem} />
-        <Tabela lista={lista} />
+        <Tabela lista={lista} incrementoButton={incrementoButton} removeItem={removeItem} />
       </div>
     </div>
   );
