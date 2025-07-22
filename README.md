@@ -51,5 +51,5 @@ Em primeiro momento, foram registradas <strong>14</strong> categorias de produto
         <img src="./capturas/captura04.png" style="border-radius:7px;">
 </figure>
 
-## Em breve
+## ⏳ Em breve
 Estou estudando e quero desenvolver uma versão mobile dessa aplicação, sendo mais conveniente em uma ida ao mercado.
