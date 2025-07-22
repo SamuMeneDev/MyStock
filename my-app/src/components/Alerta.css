@@ -1,0 +1,5 @@
+.alert {
+    background-color: var(--bgColorAlert);
+    border-color: var(--bgColorAlert);
+    color: var(--bgColorContainer)
+}

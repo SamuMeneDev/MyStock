@@ -43,7 +43,7 @@ function EditItem(props) { // Editar os valores de um item
     return (
         <div>
             <Nav />
-            <Voltar />
+            <Voltar url="/tabela" />
             <div className="container">
                 <h2>Editar Item</h2>
                 <div className="form">

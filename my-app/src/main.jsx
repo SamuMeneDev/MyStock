@@ -1,17 +1,22 @@
-import { StrictMode } from 'react'
+import { StrictMode, useState, } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import App from './App.jsx'
+import App from './pages/App.jsx'
 import EditItem from './pages/EditItem.jsx';
+import PaginaTabela from './pages/PaginaTabela.jsx';
 const categoria = [ // Categorias de produtos
-    "Hortifruti",
-    "Frios",
-    "Carnes",
-    "Higiene",
     "Bebidas",
-    "Padaria",
     "Mercearia",
+    "Limpeza",
+    "Higiene",
+    "Padaria",
+    "Biscoitos/Lanches",
+    "Papelaria",
+    "Pet-Shop",
+    "Frios",
+    "Hortifruti",
+    "Carnes",
     "Congelados",
     "Doces",
     "Embalagens"];
@@ -19,11 +24,11 @@ const categoria = [ // Categorias de produtos
 const router = createBrowserRouter([
 {
   path: "/",
-  element: <App categorias={categoria} />
+  element: <App />
 },
 {
-  path: "/zuei",
-  element: <h1>Zuei kk</h1>
+  path: "/tabela",
+  element: <PaginaTabela categorias={categoria} />
 },
 {
   path: "/edit",

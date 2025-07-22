@@ -1,0 +1,10 @@
+
+.master {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.paginaTabela {
+    display: flex;
+    flex-direction: column;
+   
+}

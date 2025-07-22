@@ -12,8 +12,8 @@
   --colorHover: #2c2c2cde;
   --colorHoverInput: #3d51c5;
   --bgColorContainer: #fff3f3;
-  --bgColorContainer: #fff3f3;
   --bgColorTh: #cacaca;
+  --bgColorAlert: #cf2929;
 }
 .nav {
   & a {
@@ -106,4 +106,9 @@ table {
     padding: 0;
   }
  
+}
+ul {padding: 0px;}
+li {
+  list-style-type: square;
+  list-style-position: inside;
 }

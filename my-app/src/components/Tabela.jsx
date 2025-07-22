@@ -18,14 +18,14 @@ function Tabela(props) {
             <h2>Seus produtos</h2>
             <table border={1}>
                 <thead>
-                    <tr>
+                    {props.lista.length>0 && <tr>
                         <th>Nome</th>
                         <th>Quant. Disponível</th>
                         <th>Quant. Necessária</th>
                         <th>Categoria</th>
                         <th>Editar valores</th>
                         <th>Remover item</th>
-                    </tr>
+                    </tr>}
                 </thead> 
                 <tbody>
                     {props.lista.map(item => (
