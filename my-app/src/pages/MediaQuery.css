@@ -1,0 +1,80 @@
+@media screen and (min-width: 0px) and (max-width: 480px) { /* Extra Small Mobile */
+    .app {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        font-size: small;
+    }
+    .container {
+        margin: 20px;
+        padding: 10px;
+    }
+    .edit {
+        font-size: small;
+    }
+    table {
+        th {
+            padding: 1px;
+        }
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 600px) { /* Small mobile */
+    .app {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        font-size: small;
+    }
+    .edit {
+        font-size: small;
+    }
+    .container {
+        margin: 20px;
+        padding: 10px;
+    }
+    table {
+        th {
+            padding: 1px;
+        }
+    }
+}
+@media screen and (min-width: 601px) and (max-width: 768px) { /* Small Tablets */
+    .app {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        font-size: large;
+    }
+    .edit {
+        font-size: large;
+    }
+    .container {
+        margin: 20px;
+        padding: 10px;
+    }
+    table {
+        th {
+            padding: 1px;
+        }
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) { /* Small Tablets */
+    .app {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        font-size: larger;
+    }
+    .container {
+        margin: 20px;
+        padding: 10px;
+    }
+    .edit {
+        font-size: larger;
+    }
+    table {
+        th {
+            padding: 1px;
+        }
+    }
+}

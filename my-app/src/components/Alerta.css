@@ -1,5 +1,10 @@
-.alert {
-    background-color: var(--bgColorAlert);
-    border-color: var(--bgColorAlert);
-    color: var(--bgColorContainer)
+button.print {
+  
+  background-color: var(--colorPositivePrimary);
+  border-color: var(--colorPositiveBorder);
+
+  &:hover {
+    
+    background-color: var(--colorPositiveHover);
+  }
 }

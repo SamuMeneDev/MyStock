@@ -1,16 +1,20 @@
 import './App.css';
-import Menu from '../components/Menu';
+import './MediaQuery.css';
+
 import Nav from '../components/Nav';
 import Alerta from '../components/Alerta';
-function App() {
+import Menu from '../components/Menu';
+import Footer from '../components/Footer';
+function App(props) {
 
   return (
     <div>
       <Nav />
       <div className='app'>
+        <Alerta categorias={props.categorias} />
         <Menu />
-        <Alerta />
       </div>
+      <Footer />
     </div>
   );
 }

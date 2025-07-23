@@ -30,26 +30,30 @@ function Tabela(props) {
                 <tbody>
                     {props.lista.map(item => (
                         <tr key={item.id}>
-                            <td>{item.nome}</td>
+                            <td><span>{item.nome}</span></td>
                             
-                            <td className="tdQuantAction" ><span>{item.quantD}</span>
-                                <button onClick={() => {props.incrementoButton(item.id, 0, true)}}>
-                                    <span>&#43;</span>
-                                </button>
-
-                                <button onClick={() => {props.incrementoButton(item.id, 0, false)}}>
-                                    <span>&minus;</span>
-                                </button>
+                            <td className="tdQuantAction" >
+                                <span>{item.quantD}</span>
+                                <div>
+                                    <button onClick={() => {props.incrementoButton(item.id, 0, true)}}>
+                                        <span>&#43;</span>
+                                    </button>
+                                    <button onClick={() => {props.incrementoButton(item.id, 0, false)}}>
+                                        <span>&minus;</span>
+                                        </button>
+                                </div>
                             </td>
                             <td className="tdQuantAction" ><span>{item.quantN}</span>
-                                <button onClick={() => {props.incrementoButton(item.id, 1, true)}}>
-                                    <span>&#43;</span>
-                                </button>
-                                <button onClick={() => {props.incrementoButton(item.id, 1 , false)}}>
-                                    <span>&minus;</span>
-                                </button>
+                                <div>
+                                    <button onClick={() => {props.incrementoButton(item.id, 1, true)}}>
+                                        <span>&#43;</span>
+                                    </button>
+                                    <button onClick={() => {props.incrementoButton(item.id, 1 , false)}}>
+                                        <span>&minus;</span>
+                                    </button>
+                                </div>
                             </td>
-                            <td>{item.categoria}</td>
+                            <td><span>{item.categoria}</span></td>
                             
                             <td className="tdActionTable">
                                 <button className="actionTableFull" onClick={() => {editItem(item)}}>
@@ -57,7 +61,7 @@ function Tabela(props) {
                                 </button>
                             </td>
 
-                            <td className="tdActionTable">
+                            <td className="tdActionTable tdDelete">
                                 <button className="actionTableFull" onClick={() => {props.removeItem(item.id)}}>
                                     <span className="material-symbols-outlined">delete</span>
                                 </button>

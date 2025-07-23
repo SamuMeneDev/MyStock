@@ -24,7 +24,7 @@ const categoria = [ // Categorias de produtos
 const router = createBrowserRouter([
 {
   path: "/",
-  element: <App />
+  element: <App categorias={categoria} />
 },
 {
   path: "/tabela",

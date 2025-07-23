@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
-import Tabela from "../components/Tabela";
-import AddItem from "../components/AddItem";
+
 import Nav from "../components/Nav";
+import Tabela from "../components/Tabela";
 import Voltar from "../components/Voltar";
-import './PaginaTabela.css';
+import AddItem from "../components/AddItem";
+
+import './MediaQuery.css';
+import Footer from "../components/Footer";
 
 function PaginaTabela(props) {
     const [lista, setLista] = useState(JSON.parse(localStorage.getItem("lista")) || []); // Lista de produtos (Tabela)
@@ -30,35 +33,38 @@ function PaginaTabela(props) {
     });
     setLista(newLista);
     }
+    
     function removeItem(itemId) {
     const newLista = lista.filter(item=> item.id!=itemId);
     setLista(newLista);
     }
-    function addItem(nome, quantD, quantN, categoria, callback) {
-    if (nome!="" && quantD!="" && quantN!="" && categoria!="") {
-      const newItem = {
-      id: lista.length==0 ? 1 : lista[lista.length-1].id +1,
-      nome,
-      quantD,
-      quantN,
-      categoria
-    }
-      setLista([...lista, newItem]);
-      callback(); // Limpa os inputs de <AddItem />
-    }
-    }
 
+    function addItem(nome, quantD, quantN, categoria, limpaInput, status) {
+      if (nome!="" && quantD!="" && quantN!="" && categoria!="") {
+        const newItem = {
+          id: lista.length==0 ? 1 : lista[lista.length-1].id +1,
+          nome,
+          quantD,
+          quantN,
+          categoria
+        }
+        setLista([...lista, newItem]);
+        limpaInput(); // Limpa os inputs de <AddItem />
+        status(true); // Todos os campos foram preenchidos
+      } else {status(false)} // Algum dos campos não foram preenchidos (mensagem exibida no componente)
+    }
 
     return (
         <div>
             <Nav />
-            <div className="master">
-                <AddItem categorias={props.categorias} addItem={addItem} />
+            <div className="app">
+                <Tabela lista={lista} incrementoButton={incrementoButton} removeItem={removeItem} />
                 <div className="paginaTabela">
                     <Voltar url="/" />
-                    <Tabela lista={lista} incrementoButton={incrementoButton} removeItem={removeItem} />
+                    <AddItem categorias={props.categorias} addItem={addItem} />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

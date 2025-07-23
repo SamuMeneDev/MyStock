@@ -1,7 +1,10 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState } from "react";
+
 import Nav from "../components/Nav";
 import Voltar from "../components/Voltar";
+import Footer from "../components/Footer";
+
 function EditItem(props) { // Editar os valores de um item
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
@@ -35,13 +38,13 @@ function EditItem(props) { // Editar os valores de um item
     
             localStorage.setItem("lista", JSON.stringify(listaAtual));
             alert("Item atualizado com sucesso!");
-            navigate("/");
+            navigate("/tabela");
 
         }
         
     }
     return (
-        <div>
+        <div className="edit">
             <Nav />
             <Voltar url="/tabela" />
             <div className="container">
@@ -53,12 +56,13 @@ function EditItem(props) { // Editar os valores de um item
                     <select name="cat" id="cat" onChange={(e) => setCategoria(e.target.value)} value={categoria}>
                         <option value="" style={{color: "red"}} >Selecione a categoria</option>
                         {props.categorias.map(itens => (
-                            <option value={itens} key={itens}>{itens}</option>
+                            <option value={itens} key={itens}><span>{itens}</span></option>
                         ))}
                 </select>
                 <button onClick={() => {saveItem(nome, quantD, quantN, categoria)}}>Salvar</button>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

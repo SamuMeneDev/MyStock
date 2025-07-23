@@ -1,15 +1,19 @@
-# 🗂️ MyStock vA0.1
+# 🗂️ MyStock v0.2
 
 Gerenciador de mantimentos domésticos, para controle em compras no supermercado, atacado e semelhantes.<br>
 <p><strong>Fun Fact: </strong>Este é o meu primeiro projeto usando React.js!</p>
 
 ## ⚙️ Tecnologias Usadas
-<div><img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" alt="HTML" style="width:25px;">
-<img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" alt="CSS" style="width:25px;">
-<img src="https://cdn.worldvectorlogo.com/logos/javascript-r.svg" alt="Javascript" style="width:25px;">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" alt="React.js" style="width:25px;"></div>
+<p align="center">
+  <a>
+    <img src="https://skillicons.dev/icons?i=html,css,js,react" />
+  </a>
+</p>
 
 ## 📄 Guia do projeto
+
+### 💡 Ideia do projeto
+
 Sempre que vamos ao mercado, corremos o risco de esquecer algum item na nossa lista de compras, ou sequer usar uma, o que resulta em estresse e compras mais caras.<br>
 Com a finalidade de resolver esse problema, desenvolvi esse <strong>Sistema de Controle de Estoque Doméstico</strong>, onde o usuário preenche os seus itens de compras, sua quantidade mínima para um período e a quantidade atual.<br> 
 <figure>
@@ -20,6 +24,15 @@ A aplicação logo em sua tela principal - assim que o usuário cadastrar os pro
 <figure>
     <figcaption><h2 align="center">Página inicial com alertas de itens em falta</h2></figcaption>
     <img src="./capturas/captura02.png" style="border-radius:7px;">
+</figure>
+
+### 🛒 Impressão da lista de compras
+Quando se tem itens em falta, é possível gerar um PDF com a lista organizada por categorias em ordem alfabética.
+
+<figure>
+    <figcaption><h2 align="center">Botão de impressão e PDF gerado</h2></figcaption>
+    <img src="./capturas/captura05.png" style="border-radius:7px;">
+    <img src="./capturas/captura06.png" style="border-radius:7px;">
 </figure>
 
 ### 🛍 Categorias de produto
@@ -37,7 +50,7 @@ Em primeiro momento, foram registradas <strong>14</strong> categorias de produto
 - Hortifruti
 - Carnes
 - Congelados
- -Doces
+- Doces
 - Embalagens
 
 ### ✍ Edição detalhada de produto

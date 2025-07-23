@@ -1,46 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /*font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;*/
+  font-family: "Inter", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #000000de;
-  background-color: #d3cfcf;
+  background-color: #e6e4e4;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  place-items: center;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --colorHover: #2c2c2cde;
-  --colorHoverInput: #3d51c5;
-  --bgColorContainer: #fff3f3;
   --bgColorTh: #cacaca;
-  --bgColorAlert: #cf2929;
+
+  --colorPeacePrimary: #ffffff;
+  --colorPeaceHover: #d6d6d6;
+  --colorPeaceBorder: #d6d6d6;
+
+  --colorSucessPrimary: #0a73fd;
+  --colorSuccessHover: #045fd4;
+  --colorSucessBorder: #0270ff;
+
+  --colorDarkPrimary: #1a1a1a;
+
+  --colorPositivePrimary: #3f795e;
+  --colorPositiveHover: #366952;
+  --colorPositiveBorder: #3f795f;
+
+  --colorDangerPrimary: #df2424;
+  --borderColorDangerPrimary: #aa0606;
+
+  --colorCloudPrimary: #a3a3a3;
+  --colorCloudHover:  #646464;
 }
 .nav {
+  background-color: var(--colorSucessPrimary);
+  color: var(--colorPeacePrimary);
+  border-radius: 7px;
+
   & a {
+    transition: 0.2s ease-in;
     cursor: pointer;
+    & h1 {padding: 10px;}
     &:hover {
-      color: var(--colorHover);
+      color: var(--colorPeaceHover);
     }
   }
 }
 .container {
-  background-color: var(--bgColorContainer);
+  background-color: var(--colorPeacePrimary);
   padding: 2rem;
   padding-top: 1rem;
-  border-radius: 7px;
+
+  border: 4px;
+  border-color: var(--colorPeaceBorder);
+  border-style: solid;
+
   margin: 1rem;
+  border-radius: 7px;
+  box-shadow: 7px 5px 3px;
 }
 .item {
   display: flex;
   gap: 10px;
 }
-
+.paginaTabela {
+    display: flex;
+    flex-direction: column;
+   
+}
+.app {
+  display: flex;
+  flex-direction: row-reverse;
+}
 body {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -52,9 +92,12 @@ h1 {
 select, button {cursor: pointer;}
 button.actionTableFull { /*Botões de editar e excluir tarefa*/
   width: 100%;
-  height: 55px;
+  height: 65px;
   border-radius: 0px;
   border: 0px;
+
+  background-color: var(--colorPeacePrimary);
+  color: var(--colorDarkPrimary);
 }
 td.tdQuantAction { /*Cédulas que contém os botões de incremento e decremento*/
   & span {
@@ -63,31 +106,70 @@ td.tdQuantAction { /*Cédulas que contém os botões de incremento e decremento*
   }
   & button {
     text-align: center;
+    margin: 0px;
+
     border: solid 0px;
-    margin: 10px;
-    border-radius: 50%;
+    border-radius: 5px;
     border: 1px solid;
+    
   }
+}
+td.tdDelete {
+  & button:hover {
+    background-color: var(--colorDangerPrimary);
+    border-color: var(--borderColorDangerPrimary);
+  }
+}
+td.alert {
+    background-color: var(--colorDangerPrimary);
+    border-color: var(--colorDangerPrimary);
+    color: var(--colorPeacePrimary)
 }
 button {
   font-weight: 500;
   font-size: large;
   
+  background-color: var(--colorSucessPrimary);
+  border-color: var(--colorSucessBorder);
+  color: var(--colorPeacePrimary);
   border-radius: 7px;
   border-style: groove;
   
+  transition: ease-in-out 0.2s;
+
   &:hover {
-    transition: ease-in 0.1s;
-    border-color: var(--colorHoverInput);
-    background-color: var(--colorHoverInput);
-    color: var(--bgColorContainer);
+    
+    background-color: var(--colorSuccessHover);
+    color: var(--colorPeacePrimary);
   }
 }
 
-input, select {
-  font-weight: 500;
+input {
+  font-weight: 200;
   font-size: large;
   outline: none;
+  border-top: 7px;
+  &::-webkit-input-placeholder{ color: var(--colorCloudPrimary);}
+  &::-moz-placeholder{ color: var(--colorCloudPrimary);}
+
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom-color: var(--bgColorTh);
+
+  transition: 0.5s;
+  &:focus {
+    transition: 0.5s;
+    padding-bottom: 4px;
+    border-bottom-color: var(--colorSuccessHover);
+    &::-webkit-input-placeholder {color: var(--colorCloudHover);}
+  }
+}
+
+select {
+  font-weight: 500;
+  font-size: large;
+  
   padding: 0.5rem;
   border-radius: 7px;
   border-style: groove;
@@ -95,9 +177,15 @@ input, select {
     transition: ease-in 0.1s;
     border-color: var(--colorHoverInput);
   }
+  & option {
+    cursor: pointer;
+  }
 }
 table {
   border-collapse: collapse;
+  & td span {
+    word-break: normal;
+  }
   & th {
     padding: 5px;
     background-color: var(--bgColorTh);
