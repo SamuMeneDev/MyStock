@@ -1,7 +1,9 @@
 # 🗂️ MyStock v0.2
 
 Gerenciador de mantimentos domésticos, para controle em compras no supermercado, atacado e semelhantes.<br>
-<p><strong>Fun Fact: </strong>Este é o meu primeiro projeto usando React.js!</p>
+<strong>Fun Fact: </strong>Este é o meu primeiro projeto usando React.js! <strong>Espero que goste :D, abraços <a href="https://github.com/SamuMeneDev">Samu Mene</a></strong>
+
+<h3><strong>Link do Projeto: </strong><a href="https://my-stock-git-main-samumenes-projects.vercel.app">MyStock Web</a>.</h3>
 
 ## ⚙️ Tecnologias Usadas
 <p align="center">
