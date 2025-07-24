@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
   /*font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;*/
@@ -37,7 +37,7 @@
   --borderColorDangerPrimary: #aa0606;
 
   --colorCloudPrimary: #a3a3a3;
-  --colorCloudHover:  #646464;
+  --colorCloudHover: #646464;
 }
 .nav {
   background-color: var(--colorSucessPrimary);
@@ -47,7 +47,9 @@
   & a {
     transition: 0.2s ease-in;
     cursor: pointer;
-    & h1 {padding: 10px;}
+    & h1 {
+      padding: 10px;
+    }
     &:hover {
       color: var(--colorPeaceHover);
     }
@@ -71,9 +73,8 @@
   gap: 10px;
 }
 .paginaTabela {
-    display: flex;
-    flex-direction: column;
-   
+  display: flex;
+  flex-direction: column;
 }
 .app {
   display: flex;
@@ -89,8 +90,12 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-select, button {cursor: pointer;}
-button.actionTableFull { /*Botões de editar e excluir tarefa*/
+select,
+button {
+  cursor: pointer;
+}
+button.actionTableFull {
+  /*Botões de editar e excluir tarefa*/
   width: 100%;
   height: 65px;
   border-radius: 0px;
@@ -99,7 +104,8 @@ button.actionTableFull { /*Botões de editar e excluir tarefa*/
   background-color: var(--colorPeacePrimary);
   color: var(--colorDarkPrimary);
 }
-td.tdQuantAction { /*Cédulas que contém os botões de incremento e decremento*/
+td.tdQuantAction {
+  /*Cédulas que contém os botões de incremento e decremento*/
   & span {
     font-size: larger;
     font-weight: 500;
@@ -111,7 +117,6 @@ td.tdQuantAction { /*Cédulas que contém os botões de incremento e decremento*
     border: solid 0px;
     border-radius: 5px;
     border: 1px solid;
-    
   }
 }
 td.tdDelete {
@@ -121,24 +126,23 @@ td.tdDelete {
   }
 }
 td.alert {
-    background-color: var(--colorDangerPrimary);
-    border-color: var(--colorDangerPrimary);
-    color: var(--colorPeacePrimary)
+  background-color: var(--colorDangerPrimary);
+  border-color: var(--colorDangerPrimary);
+  color: var(--colorPeacePrimary);
 }
 button {
   font-weight: 500;
   font-size: large;
-  
+
   background-color: var(--colorSucessPrimary);
   border-color: var(--colorSucessBorder);
   color: var(--colorPeacePrimary);
   border-radius: 7px;
   border-style: groove;
-  
+
   transition: ease-in-out 0.2s;
 
   &:hover {
-    
     background-color: var(--colorSuccessHover);
     color: var(--colorPeacePrimary);
   }
@@ -149,8 +153,12 @@ input {
   font-size: large;
   outline: none;
   border-top: 7px;
-  &::-webkit-input-placeholder{ color: var(--colorCloudPrimary);}
-  &::-moz-placeholder{ color: var(--colorCloudPrimary);}
+  &::-webkit-input-placeholder {
+    color: var(--colorCloudPrimary);
+  }
+  &::-moz-placeholder {
+    color: var(--colorCloudPrimary);
+  }
 
   border-left: none;
   border-right: none;
@@ -162,14 +170,16 @@ input {
     transition: 0.5s;
     padding-bottom: 4px;
     border-bottom-color: var(--colorSuccessHover);
-    &::-webkit-input-placeholder {color: var(--colorCloudHover);}
+    &::-webkit-input-placeholder {
+      color: var(--colorCloudHover);
+    }
   }
 }
 
 select {
   font-weight: 500;
   font-size: large;
-  
+
   padding: 0.5rem;
   border-radius: 7px;
   border-style: groove;
@@ -193,9 +203,10 @@ table {
   & td.tdActionTable {
     padding: 0;
   }
- 
 }
-ul {padding: 0px;}
+ul {
+  padding: 0px;
+}
 li {
   list-style-type: square;
   list-style-position: inside;

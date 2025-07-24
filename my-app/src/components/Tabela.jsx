@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import './Tabela.css';
 
 function Tabela(props) {
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ function Tabela(props) {
     }
     
     return (
-        <div className="container">
+        <div className="container table">
             <h2>Seus produtos</h2>
             <table border={1}>
                 <thead>

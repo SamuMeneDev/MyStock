@@ -35,8 +35,12 @@ function PaginaTabela(props) {
     }
     
     function removeItem(itemId) {
-    const newLista = lista.filter(item=> item.id!=itemId);
-    setLista(newLista);
+      const el = lista.filter(item => item.id==itemId);
+      const confi = confirm(`Deseja deletar ${el[0].nome}`);
+      if (confi) {
+        const newLista = lista.filter(item=> item.id!=itemId);
+        setLista(newLista);
+      }
     }
 
     function addItem(nome, quantD, quantN, categoria, limpaInput, status) {
