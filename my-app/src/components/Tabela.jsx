@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import './Tabela.css';
-
 function Tabela(props) {
     const navigate = useNavigate();
     function editItem(task) {
@@ -16,7 +14,7 @@ function Tabela(props) {
     
     return (
         <div className="container table">
-            <h2>Seus produtos</h2>
+            <h2>Seus Estoque</h2>
             <table border={1}>
                 <thead>
                     {props.lista.length>0 && <tr>
@@ -33,24 +31,24 @@ function Tabela(props) {
                         <tr key={item.id}>
                             <td><span>{item.nome}</span></td>
                             
-                            <td className="tdQuantAction" >
+                            <td className={item.quantD<item.quantN?"tdQuantAction alert": "tdQuantAction"} >
                                 <span>{item.quantD}</span>
                                 <div>
+                                    <button onClick={() => {props.incrementoButton(item.id, 0, false)}}>
+                                        <span>&minus;</span>
+                                    </button>
                                     <button onClick={() => {props.incrementoButton(item.id, 0, true)}}>
                                         <span>&#43;</span>
                                     </button>
-                                    <button onClick={() => {props.incrementoButton(item.id, 0, false)}}>
-                                        <span>&minus;</span>
-                                        </button>
                                 </div>
                             </td>
                             <td className="tdQuantAction" ><span>{item.quantN}</span>
                                 <div>
-                                    <button onClick={() => {props.incrementoButton(item.id, 1, true)}}>
-                                        <span>&#43;</span>
-                                    </button>
                                     <button onClick={() => {props.incrementoButton(item.id, 1 , false)}}>
                                         <span>&minus;</span>
+                                    </button>
+                                    <button onClick={() => {props.incrementoButton(item.id, 1, true)}}>
+                                        <span>&#43;</span>
                                     </button>
                                 </div>
                             </td>

@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { jsPDF } from 'jspdf';
 
-import './Alerta.css';
-
 function Alerta(props) {
     const [lista, setLista] = useState(JSON.parse(localStorage.getItem("lista")) || []); // Lista de produtos (Tabela)
     const listaF = JSON.parse(localStorage.getItem("lista"));
@@ -82,7 +80,7 @@ function Alerta(props) {
                 {itemFaltando().map(item => (
                     <li key={item.id}><h4 style={{display: "inline"}}>Faltam {item.quantN-item.quantD} unidades de {item.nome}</h4></li>
                 ))}
-            </ul>:<h2>Não itens faltando</h2>}
+            </ul>:<span>Não há itens faltando</span>}
             {itemFaltando().length>0 && <button className="print" onClick={() => gerarPDF()}>Imprimir lista de compras</button>}
         </div>
     );

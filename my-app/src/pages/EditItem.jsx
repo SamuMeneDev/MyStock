@@ -1,9 +1,11 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState } from "react";
+import StorageManager from "../uttilities";
 
-import Nav from "../components/Nav";
-import Voltar from "../components/Voltar";
-import Footer from "../components/Footer";
+import Nav from "../components/subcomponents/Nav";
+import Voltar from "../components/subcomponents/Voltar";
+import Footer from "../components/subcomponents/Footer";
+import Form from "../components/subcomponents/Form";
 
 function EditItem(props) { // Editar os valores de um item
     const navigate = useNavigate();
@@ -18,49 +20,31 @@ function EditItem(props) { // Editar os valores de um item
     const [quantD, setQuantD] = useState(quantDUrl);
     const [quantN, setQuantN] = useState(quantNUrl);
     const [categoria, setCategoria] = useState(categoriaUrl);
-    function saveItem(nome, quantD, quantN, categoria) {
-        if (nome!="" && quantD!="" && quantN!="" && categoria!="") {
-            const listaAtual = JSON.parse(localStorage.getItem("lista"));
-            const newItem = {
-                nome,
-                quantD,
-                quantN,
-                categoria
-            }
-            listaAtual.map(item => {
-                if (item.id == idUrl) {
-                    item.nome = newItem.nome;
-                    item.quantD = newItem.quantD;
-                    item.quantN = newItem.quantN;
-                    item.categoria = newItem.categoria;
-                }
-            })
-    
-            localStorage.setItem("lista", JSON.stringify(listaAtual));
-            alert("Item atualizado com sucesso!");
-            navigate("/tabela");
+    const [camposCompletos, setCamposCompletos] = useState(true);
 
-        }
-        
+    function saveItem() {
+        StorageManager.saveItem(idUrl, nome, quantD, quantN, categoria, setCamposCompletos, navigate);
     }
     return (
         <div className="edit">
             <Nav />
             <Voltar url="/tabela" />
             <div className="container">
-                <h2>Editar Item</h2>
-                <div className="form">
-                    <input type="text" placeholder='Nome do produto' onChange={(e) => setNome(e.target.value)} value={nome}/>
-                    <input type="number" min={0} placeholder='Quant. Disponível' onChange={(e) => setQuantD(e.target.value)} value={quantD}/>
-                    <input type="number" min={1} placeholder='Quant. Necessária' onChange={(e) => setQuantN(e.target.value)} value={quantN}/>
-                    <select name="cat" id="cat" onChange={(e) => setCategoria(e.target.value)} value={categoria}>
-                        <option value="" style={{color: "red"}} >Selecione a categoria</option>
-                        {props.categorias.map(itens => (
-                            <option value={itens} key={itens}><span>{itens}</span></option>
-                        ))}
-                </select>
-                <button onClick={() => {saveItem(nome, quantD, quantN, categoria)}}>Salvar</button>
-                </div>
+              <h2>Editar Item</h2>
+              <Form
+              nome={nome}
+              setNome={setNome}
+              quantD={quantD}
+              setQuantD={setQuantD}
+              quantN={quantN}
+              setQuantN={setQuantN}
+              categoria={categoria}
+              setCategoria={setCategoria}
+              listaCategorias={props.categorias}
+              buttonAction={saveItem}
+              camposCompletos={camposCompletos}
+              textButton="Salvar"
+              />
             </div>
             <Footer />
         </div>

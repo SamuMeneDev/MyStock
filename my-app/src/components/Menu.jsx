@@ -5,7 +5,7 @@ function Menu() {
     return (
         <div>
             <div className="container">
-            <h2>Ver tabela completa</h2>
+            <h2>Ver estoque completo</h2>
             <button onClick={() => navigate("/tabela")}>
                 <span className="material-symbols-outlined">storefront</span>
             </button>
