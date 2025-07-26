@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import IncrementoButton from "./subcomponents/IncrementButton";
 function Tabela(props) {
     const navigate = useNavigate();
     function editItem(task) {
@@ -29,30 +30,27 @@ function Tabela(props) {
                 <tbody>
                     {props.lista.map(item => (
                         <tr key={item.id}>
-                            <td><span>{item.nome}</span></td>
+                            <td>
+                                <span>{item.nome}</span>
+                            </td>
                             
                             <td className={item.quantD<item.quantN?"tdQuantAction alert": "tdQuantAction"} >
                                 <span>{item.quantD}</span>
-                                <div>
-                                    <button onClick={() => {props.incrementoButton(item.id, 0, false)}}>
-                                        <span>&minus;</span>
-                                    </button>
-                                    <button onClick={() => {props.incrementoButton(item.id, 0, true)}}>
-                                        <span>&#43;</span>
-                                    </button>
-                                </div>
+                                <IncrementoButton
+                                incrementoButton={props.incrementoButton}
+                                variavel={0}/>
                             </td>
-                            <td className="tdQuantAction" ><span>{item.quantN}</span>
-                                <div>
-                                    <button onClick={() => {props.incrementoButton(item.id, 1 , false)}}>
-                                        <span>&minus;</span>
-                                    </button>
-                                    <button onClick={() => {props.incrementoButton(item.id, 1, true)}}>
-                                        <span>&#43;</span>
-                                    </button>
-                                </div>
+
+                            <td className="tdQuantAction" >
+                                <span>{item.quantN}</span>
+                                <IncrementoButton
+                                incrementoButton={props.incrementoButton}
+                                variavel={0}/>
                             </td>
-                            <td><span>{item.categoria}</span></td>
+
+                            <td>
+                                <span>{item.categoria}</span>
+                            </td>
                             
                             <td className="tdActionTable">
                                 <button className="actionTableFull" onClick={() => {editItem(item)}}>

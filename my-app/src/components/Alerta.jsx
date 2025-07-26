@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import StorageManager from '../uttilities';
 import { jsPDF } from 'jspdf';
 
 function Alerta(props) {
@@ -10,44 +11,10 @@ function Alerta(props) {
     }, [lista]);
 
     function gerarPDF() {
-        const date = new Date();
-        const dataAtual = [ // [Dia {dia, mes, ano},  Hora {sec, min, hora}]
-            {
-                dia: date.getUTCDate()<=9 ? "0"+(date.getUTCDate()-1).toString() : date.getUTCDate()-1,
-                mes: date.getUTCMonth()<=9 ? "0"+date.getUTCMonth().toString() : date.getUTCMonth(),
-                ano: date.getFullYear()
-            },
-            { 
-                sec: date.getSeconds()<=9 ? "0"+date.getSeconds().toString() : date.getSeconds(),
-                min: date.getMinutes()<=9 ? "0"+date.getMinutes().toString() : date.getMinutes(),
-                hora: date.getHours()<=9 ? "0"+date.getHours().toString() : date.getHours()
-            }
-        ];
-        const doc = new jsPDF();
-        doc.text("MyStock - Lista de compras", 10, 10);
-        for (let i=0; i<itemFaltando().length; i++) {
-            doc.text(`${i+1}. ${itemFaltando()[i].nome} - ${itemFaltando()[i].quantN - itemFaltando()[i].quantD} unidades [${itemFaltando()[i].categoria}]`, 10, (10*(i+1))+10); // linha com ajuda da Sarinha kk
-        }
-        doc.save(`lista-de-compras${dataAtual[0].mes}${dataAtual[0].dia}${dataAtual[0].ano}-${dataAtual[1].hora}${dataAtual[1].min}${dataAtual[1].sec}.pdf`); // Gera o arquivo com a data de criação
+        StorageManager.gerarPDF(itemFaltando);
     }
-
-
     function itemFaltando() {
-        const cat = props.categorias.sort();
-        const listaFaltandoOrg = [];
-        const listaFaltando = [];
-        lista.map(item => {
-            if(item.quantD<item.quantN) {listaFaltando.push(item)}
-        })
-        for(let i=0; i<cat.length; i++) {
-            for(let j=0; j<listaFaltando.length; j++) { // Para cada categoria...
-                if (listaFaltando[j].categoria==cat[i]) { // Para cada item faltando...
-                    listaFaltandoOrg.push(listaFaltando[j]);
-                }
-            }
-        }
-        
-        return listaFaltandoOrg;
+        return StorageManager.itemFaltando(props.categorias, lista);
     }
 
     return (

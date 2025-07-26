@@ -30,12 +30,8 @@ A aplicação logo em sua tela principal - assim que o usuário cadastrar os pro
     <img src="./capturas/captura01.png" style="border-radius:7px;">
 </figure>
 
-### 🛠 Funcionalidades
-#### 🛒 Impressão da lista de compras
-
-Quando se tem itens em falta, é possível gerar um PDF com a lista organizada por categorias em ordem alfabética.
-
-
+### 🛠 Guia do projeto
+Segue um guia de como usar a aplicação: <a href="./my-app/README.md">Guia do app</a>
 
 #### 🛍 Categorias de produto
 Em primeiro momento, foram registradas <strong>14</strong> categorias de produtos:
