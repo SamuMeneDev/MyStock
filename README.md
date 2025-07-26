@@ -1,4 +1,4 @@
-# 🗂️ MyStock v0.3 (Em andamento)
+# 🗂️ MyStock v0.3
 <img src="my-app/src/assets/icon.png" alt="logo do projeto" style="width: 64px;border-radius:7px;">
 Gerenciador de mantimentos domésticos, para controle em compras no supermercado, atacado e semelhantes.<br>
 <strong>Fun Fact: </strong>Este é o meu primeiro projeto usando React.js! <strong>Espero que goste :D, abraços <a href="https://github.com/SamuMeneDev">Samu Mene</a></strong>
