@@ -18,7 +18,7 @@ function Alerta(props) {
     }
 
     return (
-        <div className="container">
+        <div className="container table">
             <h2>Itens faltando</h2>
             <table border="1" >
                 <thead>
