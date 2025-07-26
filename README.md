@@ -1,4 +1,5 @@
 # 🗂️ MyStock v0.3 (Em andamento)
+<img src="my-app/src/assets/icon.png" alt="logo do projeto" style="width: 64px;border-radius:7px;">
 Gerenciador de mantimentos domésticos, para controle em compras no supermercado, atacado e semelhantes.<br>
 <strong>Fun Fact: </strong>Este é o meu primeiro projeto usando React.js! <strong>Espero que goste :D, abraços <a href="https://github.com/SamuMeneDev">Samu Mene</a></strong>
 <h3><strong>Link do Projeto: </strong><a href="https://my-stock-eight.vercel.app">MyStock Web</a>.</h3>
@@ -17,6 +18,7 @@ Gerenciador de mantimentos domésticos, para controle em compras no supermercado
 </p>
 
 ## 📄 Sobre do projeto
+
 ### 💡 Ideia do projeto
 Sempre que vamos ao mercado, corremos o risco de esquecer algum item na nossa lista de compras, ou sequer usar uma, o que resulta em estresse e compras mais caras.<br>
 Com a finalidade de resolver esse problema, desenvolvi esse <strong>Sistema de Controle de Estoque Doméstico</strong>, onde o usuário preenche os seus itens de compras, sua quantidade mínima para um período e a quantidade atual.<br>
@@ -28,7 +30,6 @@ A aplicação logo em sua tela principal - assim que o usuário cadastrar os pro
         <span>Imagem 01</span>
     </figcaption>
     <img src="./capturas/captura01.png" style="border-radius:7px;">
-</figure>
 
 ### 🛠 Guia do projeto
 Segue um guia de como usar a aplicação: <a href="./my-app/README.md">Guia do app</a>
