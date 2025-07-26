@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import IncrementoButton from "./subcomponents/IncrementButton";
+import StorageManager from "../uttilities";
 function Tabela(props) {
     const navigate = useNavigate();
     function editItem(task) {
@@ -12,7 +13,8 @@ function Tabela(props) {
         navigate(`/edit?${query.toString()}`);
 
     }
-    
+
+
     return (
         <div className="container table">
             <h2>Seus Estoque</h2>
@@ -36,16 +38,21 @@ function Tabela(props) {
                             
                             <td className={item.quantD<item.quantN?"tdQuantAction alert": "tdQuantAction"} >
                                 <span>{item.quantD}</span>
-                                <IncrementoButton
-                                incrementoButton={props.incrementoButton}
-                                variavel={0}/>
+                                <IncrementoButton incrementoButton={props.incrementoButton}
+                                itemId={item.id}
+                                variavel={0} 
+                                lista={props.lista}
+                                setLista={props.setLista} />
                             </td>
 
                             <td className="tdQuantAction" >
                                 <span>{item.quantN}</span>
                                 <IncrementoButton
                                 incrementoButton={props.incrementoButton}
-                                variavel={0}/>
+                                itemId={item.id}
+                                variavel={1}
+                                lista={props.lista}
+                                setLista={props.setLista}/>
                             </td>
 
                             <td>

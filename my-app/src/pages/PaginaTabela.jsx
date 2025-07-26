@@ -38,6 +38,7 @@ function PaginaTabela(props) {
       <div className="app">
         <Tabela
           lista={lista}
+          setLista={setLista}
           incrementoButton={incrementoButton}
           removeItem={removeItem}
         />

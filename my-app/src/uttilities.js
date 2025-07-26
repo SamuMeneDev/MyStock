@@ -7,7 +7,7 @@ class StorageManager {
       setLista(newLista);
     }
   }
-  static incrementoButton(itemId, variavel, isIncremento, lista, setLista) {
+  static incrementoButton(itemId, variavel, isIncremento=true, lista, setLista) {
   // {variavel} 0: quantD; 1: quantN;
   // {operador} false: Decremento; true: Incremento
   const newLista = [...lista];
